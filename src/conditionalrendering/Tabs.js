@@ -13,6 +13,7 @@ class Tabs extends React.Component {
     state = {
         currentTabIndex: 0
     }
+    //Since we pass in index we need to format it like so.....
     handleButtonClick(index) {
         //console.log('cutton clicked!');
         this.setState({currentTabIndex:index});
