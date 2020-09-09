@@ -3,18 +3,116 @@ import Split from './composition/Split';
 import './App.css'
 import Tooltip from './composition/Tooltip'
 import Messages from './Messages';
-import TheDate from './state/TheDate'
-import Counter from './state/Counter'
-import Tabs from './conditionalrendering/Tabs'
+import TheDate from './state/TheDate';
+import Counter from './state/Counter';
+import Tabs from './conditionalrendering/Tabs';
+import Bomb from './state-drills/Bomb';
+import DemonymApp from './demonymapp/demonymApp/demonymApp';
+import Accordian from './state-drills/Accordian';
 
 const tabsProp = [
-  { name: 'First tab',
-    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque.' },
-  { name: 'Second tab',
-    content: 'Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
-  { name: 'Third tab',
-    content: 'Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur.' },
+  {
+    name: 'First tab',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque.'
+  },
+  {
+    name: 'Second tab',
+    content: 'Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+  },
+  {
+    name: 'Third tab',
+    content: 'Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur.'
+  },
 ];
+
+const sections = [
+  {
+    title: 'Section 1',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  },
+  {
+    title: 'Section 2',
+    content: 'Cupiditate tenetur aliquam necessitatibus id distinctio quas nihil ipsam nisi modi!',
+  },
+  {
+    title: 'Section 3',
+    content: 'Animi amet cumque sint cupiditate officia ab voluptatibus libero optio et?',
+  },
+]
+
+// Promises
+function doTask(name) {
+  const p = new Promise((resolve, reject) => {
+    console.log(`${name} has started`);
+    const duration = Math.floor(Math.random() * 5000);
+    setTimeout(() => {
+      resolve(`${name} has ended after ${duration} milliseconds`);
+    }, duration);
+  });
+  return p;
+}
+
+// doTask('A')
+//   .then(result => {
+//     console.log(result);
+//   });
+
+// doTask('B')
+//   .then(result => {
+//     console.log(result);
+//   });
+
+// doTask('C')
+//   .then(result => {
+//     console.log(result);
+//   });
+
+//Run tasks asynchonusly
+// Promise
+//   .all([
+//     doTask('A'),
+//     doTask('B'),
+//     doTask('C')
+//   ])
+//   .then(results => {
+//     // first console.log the results
+//     results.forEach(result => console.log(result));
+//     return doTask('D');
+//   })
+//   .then(result => {
+//     console.log(result);
+//   });
+
+
+// Prints B then C, then D
+// doTask('B')
+//   .then(result => {
+//     console.log(result);
+//     return doTask('C');
+//   })
+//   .then(result => {
+//     console.log(result);
+//     return doTask('D');
+//   })
+//   .then(result => {
+//     console.log(result);
+//   });
+
+// doTask('D')
+//   .then(result => {
+//     console.log(result);
+//   });
+
+// doTask('E')
+//   .then(result => {
+//     console.log(result);
+//   });
+
+// doTask('F')
+//   .then(result => {
+//     console.log(result);
+//   });
+
 
 class App extends Component {
   render() {
@@ -24,9 +122,11 @@ class App extends Component {
         <div>Hello!</div>
         <Messages name="Messages" unread={0} />
         <Messages name="Notifications" unread={10} /> */}
-        <TheDate />
+        {/* <TheDate />
         <Counter count={123} step={4}></Counter>
-        <Tabs tabs={tabsProp}></Tabs>
+        <Tabs tabs={tabsProp}></Tabs> */}
+        {/* <Bomb></Bomb> */}
+        <Accordian sections={sections}/>
       </div>
     );
   }

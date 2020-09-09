@@ -11,9 +11,9 @@ class Counter extends React.Component {
             count: 0
         }
     }
-    state = {
-        count: 0
-    };
+    // state = {
+    //     count: 0
+    // };
     handleButtonClick = () => {
         console.log('props in handleButtonClick', this.props)
         console.log('state in handleButtonClick', this.state)

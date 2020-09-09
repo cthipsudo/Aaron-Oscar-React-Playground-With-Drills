@@ -1,0 +1,17 @@
+ul{
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+ul li {
+    background: grey;
+}
+p {
+    margin: 0;
+    padding: 10px 15px;
+}
+button{
+    width: 100%;
+    border-style: none;
+    padding: 10px 15px;
+}
